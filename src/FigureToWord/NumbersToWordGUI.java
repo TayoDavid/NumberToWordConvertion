@@ -7,7 +7,10 @@ import javafx.scene.layout.*;
 import javafx.scene.text.*;
 import javafx.geometry.*;
 
-public class NumbersInWordGUI extends Application {
+/*
+ * GUI For Numbers
+ */
+public class NumbersToWordGUI extends Application {
 	private TextArea outputArea = new TextArea();				// Instance field for output
 	private TextField amountBox = new TextField();				// Instance field for input
 	
@@ -43,8 +46,6 @@ public class NumbersInWordGUI extends Application {
 		outputArea.setPrefRowCount(5);
 		outputArea.setWrapText(true);
 		outputArea.setEditable(false);
-		//outputArea.setAlignment(Pos.CENTER);
-		//outputArea.setPadding(new Insets(10, 10, 10, 10));
 		buttomPane.getChildren().add(outputArea);
 
 		HBox buttonPane = new HBox(10);
@@ -79,8 +80,9 @@ public class NumbersInWordGUI extends Application {
 
 	public void conversion(){
 		try {
-			Long figure = Long.valueOf(amountBox.getText());
-			String result = String.valueOf(NumbersInWord.convertToWord(figure)); 
+			String enteredFigure = amountBox.getText();
+			long figure = Long.parseLong(enteredFigure);
+			String result = String.valueOf(NumbersToWord.convertToWord(figure)); 
 			outputArea.setText(result);
 		}catch (Exception e) {
 			outputArea.setText("Check the figure and try again!");
